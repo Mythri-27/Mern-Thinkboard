@@ -21,7 +21,7 @@ const NoteDetailPage = () => {
   useEffect(() => {
     const fetchNote = async () => {
       try {
-        const res = await api.get(`/notes/${id}`)
+        const res = await api.get(`/${id}`)
         setNote(res.data) // u need to save the note after fetching to use it in the updation process
         // toast.success("Note fetched successfully");
       }
@@ -43,7 +43,7 @@ const NoteDetailPage = () => {
       return
     }
     try {
-      await api.put(`/notes/${id}`, note); // put is used for updating the note
+      await api.put(`/${id}`, note); // put is used for updating the note
       setNote(note)
       toast.success("Saved successfully")
       navigate("/")
@@ -61,7 +61,7 @@ const NoteDetailPage = () => {
       return;
     }
     try {
-      await api.delete(`/notes/${id}`); //use proper backend call (notes, not note)
+      await api.delete(`/${id}`); //use proper backend call (notes, not note)
       setNote(null); // get rid of the deleted one
       toast.success("Deleted successfully");
       navigate("/")

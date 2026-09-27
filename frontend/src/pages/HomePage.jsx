@@ -16,7 +16,7 @@ const HomePage = () => {
   useEffect(() => {//runs once when the page loads
     const fetchNotes = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/notes");
+        const res = await axios.get("/");
         console.log("Response from server:", res);
         console.log("Response data:", res.data);
         setNotes(res.data); //stores the fetched notes in the state
