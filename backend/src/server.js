@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: 'https://mern-thinkboard-flame.vercel.app',
+    origin: 'https://mern-thinkboard-rho.vercel.app/',
 }));
 app.use(express.json());
 app.use(rateLimiter);
