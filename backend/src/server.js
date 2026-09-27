@@ -32,5 +32,5 @@ connectDB().then(() => {
     });
 });
 
-// mongodb+srv://mythribadugu_db_user_new:55iyQnQ7jWanvvlT@cluster0.h1aftwl.mongodb.net/?appName=Cluster0
+
 
