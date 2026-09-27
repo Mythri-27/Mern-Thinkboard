@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import RateLimitedUI from '../components/RateLimitedUI';
-import axios from 'axios';
+import api from '../lib/axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import NoteCard from '../components/NoteCard';
-
 
 const HomePage = () => {
   const [isRateLimited, setIsRateLimited] = useState(false);
@@ -16,10 +15,10 @@ const HomePage = () => {
   useEffect(() => {//runs once when the page loads
     const fetchNotes = async () => {
       try {
-        const res = await axios.get("/");
+        const res = await api.get("/");
         console.log("Response from server:", res);
         console.log("Response data:", res.data);
-        setNotes(res.data); //stores the fetched notes in the state
+        setNotes(Array.isArray(res.data) ? res.data : []); //stores the fetched notes in the state
         setIsRateLimited(false);
       }
       catch (error) {
